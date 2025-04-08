@@ -1,4 +1,6 @@
+import React from "react"
 import PageContent from "./layout/pageContent"
+
 function App() {
   return (
     
