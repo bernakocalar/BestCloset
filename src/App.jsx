@@ -1,5 +1,5 @@
 import React from "react"
-import PageContent from "./layout/pageContent"
+import PageContent from "./layout/PageContent"
 
 function App() {
   return <PageContent />
