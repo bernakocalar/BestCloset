@@ -1,5 +1,8 @@
 import React from "react"
-import PageContent from "./layout/PageContent"
+// App.jsx veya index.js içinde
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import PageContent from "./layout/pageContent";
 
 function App() {
   return <PageContent />
