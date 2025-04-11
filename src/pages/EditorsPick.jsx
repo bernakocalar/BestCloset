@@ -11,18 +11,18 @@ export default function EditorsPick() {
         <div className="grid grid-cols-4 w-8/12 gap-4">
           {/* 2 kolon kaplayan ilk resim */}
           <div className="col-span-2 h-[500px]">
-            <img src="src/assets/card-item.png" alt="card-item" />
+            <img src="/assets/card-item.png" alt="card-item" />
           </div>
   
           {/* 1 kolon kaplayan ikinci resim */}
           <div className="h-[500px]" >
-            <img src="src/assets/filter.png" alt="filter 1" />
+            <img src="/assets/filter.png" alt="filter 1" />
           </div>
   
           {/* 1 kolon kaplayan, içinde alt alta iki resim */}
           <div className="flex flex-col gap-2 h-[500px]">
-            <img src="src/assets/filter (2).png" alt="filter 2" />
-            <img src="src/assets/filter (1).png" alt="filter" />
+            <img src="/assets/filter (2).png" alt="filter 2" />
+            <img src="/assets/filter (1).png" alt="filter" />
           </div>
         </div>
       </section>
