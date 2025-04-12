@@ -1,8 +1,43 @@
 import {  Mail, Phone, } from "lucide-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 export default function Header() {
+    const [showHeader, setShowHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Eğer kullanıcı kaydırmaya başlamadıysa, scroll'u başlat
+      if (!hasScrolled && currentScrollY > 0) {
+        setHasScrolled(true);
+        setShowHeader(true);
+      }
+
+      if (hasScrolled) {
+        if (currentScrollY > lastScrollY) {
+          // Aşağı kayıyor → gizle
+          setShowHeader(false);
+        } else {
+          // Yukarı kayıyor → göster
+          setShowHeader(true);
+        }
+        setLastScrollY(currentScrollY);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY, hasScrolled]);
+
     return (
-        <header className=" flex justify-between items-center w-full h-[58px] p-4 bg-[#23856D] text-white">
+        <header
+        className={`fixed top-0 w-full z-50 transition-transform duration-300 ${
+          showHeader ? "translate-y-0" : "-translate-y-full"
+        } bg-white shadow`}
+      >
+    <header className=" flex justify-between items-center w-full h-16 p-4 bg-[#23856D] text-white ">
         <div className="flex items-center space-x-2 justify-start">
             <Phone />
             <p>0 554 139 25 82</p>
@@ -16,6 +51,7 @@ export default function Header() {
                 <p>Follow us :</p>
              
             </div>
+        </header>
         </header>
     );
 }

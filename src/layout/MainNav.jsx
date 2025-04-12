@@ -1,8 +1,34 @@
 import { User } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function MainNav() {
+    const [prevScroll, setPrevScroll] = useState(0);
+  const [topValue, setTopValue] = useState("top-16");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+
+      if (currentScroll > prevScroll) {
+        // Aşağı scroll
+        setTopValue("top-0");
+      } else {
+        // Yukarı scroll
+        setTopValue("top-16");
+      }
+
+      setPrevScroll(currentScroll);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScroll]);
+
     return (
-        <nav className="bg-white py-4 px-6 shadow-sm text-black">
+        <nav
+      className={`bg-white py-4 px-6 shadow-sm text-black fixed w-full z-50 transition-all duration-300 ease-in-out ${topValue}`}
+    >
             <div className="container mx-auto flex items-center justify-between">
                 {/* Left side - Brand name and navigation links */}
                 <div className="flex items-center space-x-8 mr-4">

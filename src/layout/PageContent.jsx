@@ -3,6 +3,7 @@ import Header from "./Header";
 import MainNav from "./MainNav";
 import HomePage from "../containers/HomePage";
 import ShopPage from "../containers/ShopPage";
+import Footer from "./footer";
 
 export const pages = [
   { path: "/", component: HomePage },
@@ -12,7 +13,7 @@ export const pages = [
 export default function PageContent() {
   return (
     <BrowserRouter>
-      <Header />
+      <Header/>
       <MainNav />
       <Routes>
         {pages.map(({ component, path }) => {
@@ -20,6 +21,8 @@ export default function PageContent() {
           return <Route key={path} element={<Component />} path={path} />;
         })}
       </Routes>
+      <div className="my-10"/>
+      <Footer/>
     </BrowserRouter>
   );
 }
