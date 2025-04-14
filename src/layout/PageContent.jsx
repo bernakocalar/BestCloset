@@ -3,7 +3,7 @@ import Header from "./Header";
 import MainNav from "./MainNav";
 import HomePage from "../containers/HomePage";
 import ShopPage from "../containers/ShopPage";
-import Footer from "./footer";
+import Footer from "./Footer";
 
 export const pages = [
   { path: "/", component: HomePage },
