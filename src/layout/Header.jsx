@@ -33,9 +33,14 @@ export default function Header() {
 
     return (
         <header
-        className={`fixed top-0 w-full z-50 transition-transform duration-300 ${
-          showHeader ? "translate-y-0" : "-translate-y-full"
-        } bg-white shadow`}
+        className={`
+          hidden sm:block   // Mobilde gizle
+          lg:fixed lg:top-0 // Sadece büyük ekranlarda sabitle
+          w-full z-50
+          transition-transform duration-300
+          ${showHeader ? "lg:translate-y-0" : "lg:-translate-y-full"}
+          bg-white shadow
+        `}
       >
     <header className=" flex justify-between items-center w-full h-16 p-4 bg-[#23856D] text-white ">
         <div className="flex items-center space-x-2 justify-start">

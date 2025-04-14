@@ -1,8 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Header from "./Header";
 import MainNav from "./MainNav";
 import HomePage from "../containers/HomePage";
 import ShopPage from "../containers/ShopPage";
+import Header from "./Header";
+import Footer from "./Footer";
 
 export const pages = [
   { path: "/", component: HomePage },
@@ -21,6 +22,7 @@ export default function PageContent() {
         })}
       </Routes>
       <div className="my-10"/>
+      <Footer/>
     </BrowserRouter>
   );
 }
