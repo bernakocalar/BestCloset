@@ -1,6 +1,6 @@
 import ProductCard from "../components/ProductCard";
 
-export default function(){
+export default function BestSeller(){
     const images = [
         { src: "/assets/product-cover-5.png" },
         { src: "/assets/product-cover-5 (1).png" },

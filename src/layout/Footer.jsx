@@ -3,16 +3,16 @@ const Footer = () => {
     <footer className="bg-gray-100 text-gray-700 px-4 md:px-16 py-10">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Bandage</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">BestCloset</h2>
           <div className="flex space-x-4">
             <a href="#"><i className="fab fa-facebook text-blue-600"></i></a>
-            <a href="#"><i className="fab fa-instagram text-pink-500"></i></a>
-            <a href="#"><i className="fab fa-twitter text-blue-400"></i></a>
+            <a href="#"><i className="fab fa-instagram text-blue-600"></i></a>
+            <a href="#"><i className="fab fa-twitter text-blue-600"></i></a>
           </div>
         </div>
 
         <div>
-          <h4 className="font-semibold mb-3">Company Info</h4>
+          <h4 className="font-bold text-xl mb-3">Company Info</h4>
           <ul className="space-y-2">
             <li><a href="#">About Us</a></li>
             <li><a href="#">Carrier</a></li>
@@ -22,7 +22,7 @@ const Footer = () => {
         </div>
 
         <div>
-          <h4 className="font-semibold mb-3">Legal</h4>
+          <h4 className="font-bold text-xl mb-3">Legal</h4>
           <ul className="space-y-2">
             <li><a href="#">About Us</a></li>
             <li><a href="#">Carrier</a></li>
@@ -32,7 +32,7 @@ const Footer = () => {
         </div>
 
         <div>
-          <h4 className="font-semibold mb-3">Features</h4>
+          <h4 className="font-bold text-xl mb-3">Features</h4>
           <ul className="space-y-2">
             <li><a href="#">Business Marketing</a></li>
             <li><a href="#">User Analytic</a></li>
@@ -42,7 +42,7 @@ const Footer = () => {
         </div>
 
         <div>
-          <h4 className="font-semibold mb-3">Get In Touch</h4>
+          <h4 className="font-bold text-xl mb-3">Get In Touch</h4>
           <form className="flex flex-col space-y-3">
             <input 
               type="email" 

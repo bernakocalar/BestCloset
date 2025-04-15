@@ -15,6 +15,7 @@ export default function PageContent() {
     <BrowserRouter>
       <Header/>
       <MainNav />
+      <div className="my-32"/>
       <Routes>
         {pages.map(({ component, path }) => {
           const Component = component;

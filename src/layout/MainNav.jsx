@@ -1,4 +1,4 @@
-import { User } from "lucide-react";
+import { Heart, ShoppingCart, User } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function MainNav() {
@@ -53,6 +53,8 @@ export default function MainNav() {
         <div className="flex items-center space-x-4 justify-end">
           <User className="text-gray-600" size={16} />
           <a href="/register" className="ml-2 text-sm text-gray-600 hover:text-gray-800">Login/Register</a>
+          <ShoppingCart className="text-gray-600" size={16}/>
+          <Heart className="text-gray-600" size={16}/>
         </div>
       </div>
     </nav>

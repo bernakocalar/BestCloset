@@ -42,7 +42,7 @@ export default function Header() {
           bg-white shadow
         `}
       >
-    <header className=" flex justify-between items-center w-full h-16 p-4 bg-[#23856D] text-white ">
+    <header className=" flex justify-between items-center w-full h-16 py-4 px-6 bg-[#23856D] text-white ">
         <div className="flex items-center space-x-2 justify-start">
             <Phone />
             <p>0 554 139 25 82</p>
@@ -52,9 +52,11 @@ export default function Header() {
             <div className="flex items-center space-x-2 justify-center">
                 <p>Follow Us  and get a chance to win 80% off</p>
             </div>
-            <div className="flex items-center space-x-2 justify-end">
+            <div className="flex items-center space-x-3 justify-end">
                 <p>Follow us :</p>
-             
+                <a href="#"><i className="fab fa-facebook text-white"></i></a>
+            <a href="#"><i className="fab fa-instagram text-white"></i></a>
+            <a href="#"><i className="fab fa-twitter text-white"></i></a>
             </div>
         </header>
         </header>
