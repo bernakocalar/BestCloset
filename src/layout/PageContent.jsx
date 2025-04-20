@@ -5,11 +5,17 @@ import ShopPage from "../containers/ShopPage";
 import Header from "./Header";
 import Footer from "./Footer";
 import ProductDetailPage from "../containers/ProductDetailPage";
+import ContactPage from "../containers/ContactPage";
+import BlogPage from "../containers/BlogPage";
+import AboutPage from "../containers/AboutPage";
 
 export const pages = [
   { path: "/", component: HomePage },
   { path: "/shop", component: ShopPage },
   { path: "/product-detail", component: ProductDetailPage },
+  { path: "/about", component: AboutPage },
+  { path: "/blog", component: BlogPage },
+  { path: "/contact", component: ContactPage },
 ];
 
 export default function PageContent() {
