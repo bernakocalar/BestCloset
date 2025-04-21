@@ -40,21 +40,38 @@ export default function MainNav() {
           <h1 className="text-2xl font-bold justify-start">BESTCLOSET</h1>
 
           <div className="hidden sm:flex md:text-sm space-x-6 justify-start">
-            <a href="/" className="hover:text-gray-600">Home</a>
-            <a href="/shop" className="hover:text-gray-600">Shop</a>
-            <a href="/about" className="hover:text-gray-600">About</a>
-            <a href="/blog" className="hover:text-gray-600">Blog</a>
-            <a href="/contact" className="hover:text-gray-600">Contact</a>
-            <a href="/pages" className="hover:text-gray-600">Pages</a>
+            <a href="/" className="hover:text-gray-600">
+              Home
+            </a>
+            <a href="/shop" className="hover:text-gray-600">
+              Shop
+            </a>
+            <a href="/about" className="hover:text-gray-600">
+              About
+            </a>
+            <a href="/blog" className="hover:text-gray-600">
+              Blog
+            </a>
+            <a href="/contact" className="hover:text-gray-600">
+              Contact
+            </a>
+            <a href="/team" className="hover:text-gray-600">
+              Team
+            </a>
           </div>
         </div>
 
         {/* Right side - Register button */}
         <div className="flex items-center space-x-4 justify-end">
           <User className="text-gray-600" size={16} />
-          <a href="/register" className="ml-2 text-sm text-gray-600 hover:text-gray-800">Login/Register</a>
-          <ShoppingCart className="text-gray-600" size={16}/>
-          <Heart className="text-gray-600" size={16}/>
+          <a
+            href="/signup"
+            className="ml-2 text-sm text-gray-600 hover:text-gray-800"
+          >
+            Login/Register
+          </a>
+          <ShoppingCart className="text-gray-600" size={16} />
+          <Heart className="text-gray-600" size={16} />
         </div>
       </div>
     </nav>

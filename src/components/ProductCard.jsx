@@ -1,6 +1,13 @@
+import { Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-export default function ProductCard({ src }) {
+export default function ProductCard({
+  src,
+  title,
+  price,
+  description,
+  rating,
+}) {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -13,11 +20,14 @@ export default function ProductCard({ src }) {
       className="border rounded-lg p-4 shadow-md text-center space-y-2"
     >
       <img src={src} alt="" className="w-full object-cover rounded" />
-      <p className="font-semibold mt-2">Graphic Design</p>
-      <p className="text-gray-500">English Department</p>
-      <div className="flex space-x-1 justify-center">
-        <p className="text-gray-500">$16.48</p>
-        <p className="text-[#23856D]">$6.48</p>
+      <p className="font-semibold mt-2">{title}</p>
+      <p className="text-gray-500">{description}</p>
+      <div className="flex space-x-1 justify-around items-center">
+        <p className="text-gray-500">{price} ₺</p>
+        <div className="flex items-center space-x-1">
+          <p className="text-[#23856D]">{rating}</p>
+          <Star className="w-4 h-4 text-yellow-500" />
+        </div>
       </div>
       <div className="flex space-x-2 justify-center">
         {colors.map((color, index) => (

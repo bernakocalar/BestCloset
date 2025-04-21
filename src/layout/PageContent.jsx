@@ -8,6 +8,8 @@ import ProductDetailPage from "../containers/ProductDetailPage";
 import ContactPage from "../containers/ContactPage";
 import BlogPage from "../containers/BlogPage";
 import AboutPage from "../containers/AboutPage";
+import TeamPage from "../containers/TeamPage";
+import SignupForm from "../containers/SignUpForm";
 
 export const pages = [
   { path: "/", component: HomePage },
@@ -16,6 +18,8 @@ export const pages = [
   { path: "/about", component: AboutPage },
   { path: "/blog", component: BlogPage },
   { path: "/contact", component: ContactPage },
+  { path: "/team", component: TeamPage },
+  { path: "/signup", component: SignupForm },
 ];
 
 export default function PageContent() {

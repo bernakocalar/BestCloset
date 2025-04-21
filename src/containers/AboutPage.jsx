@@ -1,3 +1,4 @@
+import FreeTrial from "../components/FreeTrial";
 import TeamCard from "../components/TeamCard";
 
 export default function AboutPage() {
@@ -30,12 +31,13 @@ export default function AboutPage() {
           Problems trying to resolve the conflict between the two major realms
           of Classical physics: Newtonian mechanics{" "}
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full mx-auto md:w-8/12 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full">
           {Array.from({ length: 3 }).map((_, i) => (
             <TeamCard key={i} />
           ))}
         </div>
       </div>
+      <FreeTrial />
     </section>
   );
 }

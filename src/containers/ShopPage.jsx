@@ -1,26 +1,25 @@
+import { useEffect } from "react";
 import Brands from "../components/Brands";
 import ProductCard from "../components/ProductCard";
+import axiosinstance from "../services/axiosInstance";
 import Pagination from "../shared/Pagination";
+import { useState } from "react";
 
 export default function ShopPage() {
-  const images = [
-    { src: "/assets/product-cover-5.png" },
-    { src: "/assets/product-cover-5 (1).png" },
-    { src: "/assets/product-cover-5 (2).png" },
-    { src: "/assets/product-cover-5 (3).png" },
-    { src: "/assets/product-cover-5 (4).png" },
-    { src: "/assets/product-cover-5 (5).png" },
-    { src: "/assets/product-cover-5 (6).png" },
-    { src: "/assets/product-cover-5 (7).png" },
-    { src: "/assets/product-cover-5.png" },
-    { src: "/assets/product-cover-5 (1).png" },
-    { src: "/assets/product-cover-5 (2).png" },
-    { src: "/assets/product-cover-5 (3).png" },
-    { src: "/assets/product-cover-5 (4).png" },
-    { src: "/assets/product-cover-5 (5).png" },
-    { src: "/assets/product-cover-5 (6).png" },
-    { src: "/assets/product-cover-5 (7).png" },
-  ];
+  const [products, setProducts] = useState([]); // Veriyi saklamak için state
+
+  useEffect(() => {
+    axiosinstance
+      .get("/products")
+      .then((res) => {
+        setProducts(res.data.products);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  products.forEach((product) => console.log(product.images));
+
   return (
     <div className="w-11/12 mx-auto">
       <div className="text-left text-3xl mb-6">
@@ -33,8 +32,15 @@ export default function ShopPage() {
       </div>
       <div className="my-8"></div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 w-9/12 mx-auto">
-        {images.map((item, index) => (
-          <ProductCard key={index} src={item.src} />
+        {products.map((item, index) => (
+          <ProductCard
+            key={index}
+            src={item.images?.[0].url}
+            title={item.name}
+            description={item.description}
+            price={item.price}
+            rating={item.rating}
+          />
         ))}
       </div>
       <div className="flex justify-center mt-4">
