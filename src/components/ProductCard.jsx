@@ -1,5 +1,6 @@
-import { Star } from "lucide-react";
+import { Heart, ShoppingCart, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import useStore from "../zustand/store";
 
 export default function ProductCard({
   src,
@@ -7,11 +8,18 @@ export default function ProductCard({
   price,
   description,
   rating,
+  id,
 }) {
   const navigate = useNavigate();
-
+  const { addToCart, toogleFavorite } = useStore(); // Zustand store'dan addToCart fonksiyonunu alıyoruz
+  const handleAddToCart = () => {
+    addToCart({ id, title, price, src }); // Sepete ekleme işlemi
+  };
+  const handleAddToFavorites = () => {
+    toogleFavorite({ id, title, price, src }); // Favorilere ekleme işlemi
+  };
   const handleClick = () => {
-    navigate("/product-detail");
+    navigate(`/product-detail/${id}`);
   };
   const colors = ["blue-500", "green-500", "blue-500", "green-500"];
   return (
@@ -19,6 +27,10 @@ export default function ProductCard({
       onClick={handleClick}
       className="border rounded-lg p-4 shadow-md text-center space-y-2"
     >
+      <div className="flex justify-between ">
+        <ShoppingCart onClick={handleAddToCart} />
+        <Heart onClick={handleAddToFavorites} />
+      </div>
       <img src={src} alt="" className="w-full object-cover rounded" />
       <p className="font-semibold mt-2">{title}</p>
       <p className="text-gray-500">{description}</p>

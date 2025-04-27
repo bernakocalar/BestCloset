@@ -1,25 +1,19 @@
 import { useEffect } from "react";
 import Brands from "../components/Brands";
 import ProductCard from "../components/ProductCard";
-import axiosinstance from "../services/axiosInstance";
 import Pagination from "../shared/Pagination";
-import { useState } from "react";
+
+import useStore from "../zustand/store";
 
 export default function ShopPage() {
-  const [products, setProducts] = useState([]); // Veriyi saklamak için state
+  const { products, loading, fetchProducts, addToCart } = useStore();
 
   useEffect(() => {
-    axiosinstance
-      .get("/products")
-      .then((res) => {
-        setProducts(res.data.products);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    fetchProducts();
   }, []);
-  products.forEach((product) => console.log(product.images));
 
+  if (loading) return <div>Yükleniyor...</div>;
+  const result = products.products;
   return (
     <div className="w-11/12 mx-auto">
       <div className="text-left text-3xl mb-6">
@@ -32,16 +26,23 @@ export default function ShopPage() {
       </div>
       <div className="my-8"></div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 w-9/12 mx-auto">
-        {products.map((item, index) => (
-          <ProductCard
-            key={index}
-            src={item.images?.[0].url}
-            title={item.name}
-            description={item.description}
-            price={item.price}
-            rating={item.rating}
-          />
-        ))}
+        {result?.length > 0 ? (
+          result.map((item, index) => (
+            <ProductCard
+              key={index}
+              src={item.images?.[0].url}
+              title={item.name}
+              description={item.description}
+              price={item.price}
+              rating={item.rating}
+              id={item.id}
+            />
+          ))
+        ) : (
+          <div className="col-span-4 text-center text-lg text-gray-500">
+            Ürün bulunamadı.
+          </div>
+        )}
       </div>
       <div className="flex justify-center mt-4">
         <Pagination totalPages={10} />

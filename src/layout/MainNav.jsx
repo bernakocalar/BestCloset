@@ -1,10 +1,17 @@
 import { Heart, ShoppingCart, User } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function MainNav() {
   const [showNav, setShowNav] = useState(true);
   const [prevScroll, setPrevScroll] = useState(0);
-
+  const navigate = useNavigate();
+  const handleNavigate = (path) => {
+    navigate("/cart");
+  };
+  const handleFavorite = (path) => {
+    navigate("/favorites");
+  };
   useEffect(() => {
     const handleScroll = () => {
       const currentScroll = window.scrollY;
@@ -70,8 +77,12 @@ export default function MainNav() {
           >
             Login/Register
           </a>
-          <ShoppingCart className="text-gray-600" size={16} />
-          <Heart className="text-gray-600" size={16} />
+          <ShoppingCart
+            onClick={handleNavigate}
+            className="text-gray-600"
+            size={16}
+          />
+          <Heart onClick={handleFavorite} className="text-gray-600" size={16} />
         </div>
       </div>
     </nav>

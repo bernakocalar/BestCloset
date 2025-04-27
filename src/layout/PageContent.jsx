@@ -10,16 +10,22 @@ import BlogPage from "../containers/BlogPage";
 import AboutPage from "../containers/AboutPage";
 import TeamPage from "../containers/TeamPage";
 import SignupForm from "../containers/SignUpForm";
+import Cart from "../containers/CartPage";
+import Favorites from "../containers/Favorites";
+import Checkout from "../containers/ShippingPage";
 
 export const pages = [
   { path: "/", component: HomePage },
   { path: "/shop", component: ShopPage },
-  { path: "/product-detail", component: ProductDetailPage },
   { path: "/about", component: AboutPage },
   { path: "/blog", component: BlogPage },
   { path: "/contact", component: ContactPage },
   { path: "/team", component: TeamPage },
   { path: "/signup", component: SignupForm },
+  { path: "/product-detail/:id", component: ProductDetailPage },
+  { path: "/cart", component: Cart },
+  { path: "/favorites", component: Favorites },
+  { path: "shipping", component: Checkout },
 ];
 
 export default function PageContent() {
