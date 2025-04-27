@@ -1,11 +1,16 @@
 import { Heart, ShoppingCart, User } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuthStore } from "../zustand/authStore";
+import { useCategoryStore } from "../zustand/categoryStore";
 
 export default function MainNav() {
   const [showNav, setShowNav] = useState(true);
   const [prevScroll, setPrevScroll] = useState(0);
   const navigate = useNavigate();
+  const user = useAuthStore((state) => state.user);
+  const { categories, loading, fetchCategories } = useCategoryStore();
+  const [showDropdown, setShowDropdown] = useState(false);
   const handleNavigate = (path) => {
     navigate("/cart");
   };
@@ -31,6 +36,11 @@ export default function MainNav() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScroll]);
 
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+  console.log(categories);
+  if (loading) return <div>Loading...</div>;
   return (
     <nav
       className={`
@@ -50,9 +60,30 @@ export default function MainNav() {
             <a href="/" className="hover:text-gray-600">
               Home
             </a>
-            <a href="/shop" className="hover:text-gray-600">
-              Shop
-            </a>
+
+            <div className="relative">
+              <button
+                onClick={() => setShowDropdown((prev) => !prev)}
+                className="hover:text-gray-600 focus:outline-none"
+              >
+                Shop
+              </button>
+
+              {showDropdown && (
+                <div className="absolute left-0 mt-2 w-64 bg-white shadow-lg rounded-md p-4 grid grid-cols-2 gap-4 z-50">
+                  {categories.map((category, index) => (
+                    <a
+                      key={index}
+                      href={`/shop/${category.gender}/${category.title}/${category.id}`}
+                      className="text-gray-700 hover:text-blue-500 text-sm"
+                    >
+                      {category.title}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <a href="/about" className="hover:text-gray-600">
               About
             </a>
@@ -70,13 +101,25 @@ export default function MainNav() {
 
         {/* Right side - Register button */}
         <div className="flex items-center space-x-4 justify-end">
-          <User className="text-gray-600" size={16} />
-          <a
-            href="/signup"
-            className="ml-2 text-sm text-gray-600 hover:text-gray-800"
-          >
-            Login/Register
-          </a>
+          {user ? (
+            <>
+              <User className="text-gray-600" size={16} />
+              <span className="ml-2 text-sm text-gray-600">
+                {user.username}{" "}
+                {/* veya user.name ya da user.email, backend nasıl dönüyorsa */}
+              </span>
+            </>
+          ) : (
+            <>
+              <User className="text-gray-600" size={16} />
+              <a
+                href="/signup"
+                className="ml-2 text-sm text-gray-600 hover:text-gray-800"
+              >
+                Login/Register
+              </a>
+            </>
+          )}
           <ShoppingCart
             onClick={handleNavigate}
             className="text-gray-600"

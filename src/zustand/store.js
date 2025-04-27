@@ -2,16 +2,16 @@
 import { create } from 'zustand';
 import axiosinstance from '../services/axiosInstance';
 
-// Ürünleri API'dan çekmek için mock fonksiyon (gerçekte axios/fetch kullanın)
+
 const fetchProducts = async () => {
     try {
       const res = await axiosinstance.get("/products");
      
-      console.log(res.data); // Veriyi kontrol etmek için konsola yazdır
+      console.log(res.data); 
       return res.data;
     } catch (err) {
       console.error("Ürünler çekilirken hata:", err);
-      return []; // Hata durumunda boş array dön
+      return []; 
     }
   };
 // Zustand store'u

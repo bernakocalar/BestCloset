@@ -11,9 +11,9 @@ export default function ProductCard({
   id,
 }) {
   const navigate = useNavigate();
-  const { addToCart, toogleFavorite } = useStore(); // Zustand store'dan addToCart fonksiyonunu alıyoruz
+  const { addToCart, toogleFavorite } = useStore();
   const handleAddToCart = () => {
-    addToCart({ id, title, price, src }); // Sepete ekleme işlemi
+    addToCart({ id, title, price, src });
   };
   const handleAddToFavorites = () => {
     toogleFavorite({ id, title, price, src }); // Favorilere ekleme işlemi

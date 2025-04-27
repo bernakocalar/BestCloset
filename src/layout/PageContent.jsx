@@ -13,6 +13,7 @@ import SignupForm from "../containers/SignUpForm";
 import Cart from "../containers/CartPage";
 import Favorites from "../containers/Favorites";
 import Checkout from "../containers/ShippingPage";
+import LoginForm from "../containers/LoginForm";
 
 export const pages = [
   { path: "/", component: HomePage },
@@ -26,6 +27,7 @@ export const pages = [
   { path: "/cart", component: Cart },
   { path: "/favorites", component: Favorites },
   { path: "shipping", component: Checkout },
+  { path: "/login", component: LoginForm },
 ];
 
 export default function PageContent() {
