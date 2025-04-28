@@ -19,7 +19,7 @@ export default function ProductCard({
     toogleFavorite({ id, title, price, src }); // Favorilere ekleme işlemi
   };
   const handleClick = () => {
-    navigate(`/product-detail/${id}`);
+    navigate(`/products/${id}`); // Ürün detay sayfasına yönlendirme
   };
   const colors = ["blue-500", "green-500", "blue-500", "green-500"];
   return (

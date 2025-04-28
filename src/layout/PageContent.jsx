@@ -23,7 +23,7 @@ export const pages = [
   { path: "/contact", component: ContactPage },
   { path: "/team", component: TeamPage },
   { path: "/signup", component: SignupForm },
-  { path: "/product-detail/:id", component: ProductDetailPage },
+  { path: "/products/:id", component: ProductDetailPage },
   { path: "/cart", component: Cart },
   { path: "/favorites", component: Favorites },
   { path: "shipping", component: Checkout },

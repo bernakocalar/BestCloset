@@ -25,7 +25,7 @@ const Favorites = () => {
             Henüz favori ürününüz yok
           </p>
           <Link
-            to="/"
+            to="/shop"
             className="inline-block bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700"
           >
             Alışverişe Başla
